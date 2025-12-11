@@ -18,7 +18,7 @@ struct CharacterView: View {
                     NavigationLink(value: character) {
                         CharacterCardView(characterInfo: character)
                             .onAppear {
-                                viewmodel.loadNextPageIfNeeded(currentItem: character)
+                                viewmodel.loadNextPageWhenIsNeeded(currentItem: character)
                             }
                     }
                 }
@@ -37,8 +37,8 @@ struct CharacterView: View {
                 Toggle("Sort by birth", isOn: $viewmodel.sortByBirthYear)
             }
             .task {
-                if viewmodel.people.isEmpty {
-                    await viewmodel.loadPeoplePage()
+                if viewmodel.character.isEmpty {
+                    await viewmodel.loadCharacterPage()
                 }
             }
             .navigationDestination(for: CharacterModel.self) { character in

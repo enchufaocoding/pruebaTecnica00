@@ -5,12 +5,13 @@
 //  Created by Jose Alberto Rosario Castillo on 11/12/25.
 //
 
+
 import Foundation
 import Combine
 
 @MainActor
 final class CharacterViewModel: ObservableObject {
-    @Published var people: [CharacterModel] = []
+    @Published var character: [CharacterModel] = []
     @Published var isLoading = false
     @Published var searchText: String = ""
     @Published var sortByBirthYear: Bool = false
@@ -21,26 +22,26 @@ final class CharacterViewModel: ObservableObject {
 
     private var filmCache: [Int: FilmsModel] = [:]
 
-    func loadNextPageIfNeeded(currentItem: CharacterModel?) {
+    func loadNextPageWhenIsNeeded(currentItem: CharacterModel?) {
         guard !isLoading, canLoadMore else { return }
         guard let currentItem else {
-            Task { await loadPeoplePage() }
+            Task { await loadCharacterPage() }
             return
         }
         
-        guard let idx = people.firstIndex(where: { $0.id == currentItem.id }) else { return }
+        guard let characterIndex = character.firstIndex(where: { $0.id == currentItem.id }) else { return }
         
-        if idx >= people.count - 5 {
-            Task { await loadPeoplePage() }
+        if characterIndex >= character.count - 5 {
+            Task { await loadCharacterPage() }
         }
     }
 
-    func loadPeoplePage() async {
+    func loadCharacterPage() async {
         guard !isLoading, canLoadMore, !fetchedPages.contains(currentPage) else { return }
         isLoading = true
         do {
             let resp = try await APIServices.fetchCharacter(pageNum: currentPage)
-            people.append(contentsOf: resp.results)
+            character.append(contentsOf: resp.results)
             canLoadMore = resp.next != nil
             fetchedPages.insert(currentPage)
             currentPage += 1
@@ -52,7 +53,7 @@ final class CharacterViewModel: ObservableObject {
     }
 
     var filteredPeople: [CharacterModel] {
-        var list = people
+        var list = character
         if !searchText.isEmpty {
             list = list.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }

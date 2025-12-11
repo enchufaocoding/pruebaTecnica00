@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-// import SwiftData
 
 @main
 struct SuperStarWarsApp: App {
@@ -14,6 +13,5 @@ struct SuperStarWarsApp: App {
         WindowGroup {
             CharacterView()
         }
-      //  .modelContainer(for: ChacaterPersistence.self])
     }
 }

@@ -21,8 +21,8 @@ final class FilmsViewModel: ObservableObject {
                 }
             }
             var results: [FilmsModel] = []
-            for await r in group {
-                if let f = r { results.append(f) }
+            for await result in group {
+                if let films = result { results.append(films) }
             }
             return results
         }
