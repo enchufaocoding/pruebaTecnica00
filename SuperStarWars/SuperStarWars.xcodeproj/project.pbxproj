@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2D1C7F042EEA88550021064E /* SuperStarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperStarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9E46722EEA89DA00231E2B /* SuperStarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperStarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2D1C7F062EEA88550021064E /* SuperStarWars */ = {
+		2D9E46742EEA89DA00231E2B /* SuperStarWars */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SuperStarWars;
 			sourceTree = "<group>";
@@ -19,7 +19,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2D1C7F012EEA88550021064E /* Frameworks */ = {
+		2D9E466F2EEA89DA00231E2B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D1C7EFB2EEA88550021064E = {
+		2D9E46692EEA89DA00231E2B = {
 			isa = PBXGroup;
 			children = (
-				2D1C7F062EEA88550021064E /* SuperStarWars */,
-				2D1C7F052EEA88550021064E /* Products */,
+				2D9E46742EEA89DA00231E2B /* SuperStarWars */,
+				2D9E46732EEA89DA00231E2B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2D1C7F052EEA88550021064E /* Products */ = {
+		2D9E46732EEA89DA00231E2B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D1C7F042EEA88550021064E /* SuperStarWars.app */,
+				2D9E46722EEA89DA00231E2B /* SuperStarWars.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D1C7F032EEA88550021064E /* SuperStarWars */ = {
+		2D9E46712EEA89DA00231E2B /* SuperStarWars */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D1C7F0F2EEA88560021064E /* Build configuration list for PBXNativeTarget "SuperStarWars" */;
+			buildConfigurationList = 2D9E467D2EEA89DB00231E2B /* Build configuration list for PBXNativeTarget "SuperStarWars" */;
 			buildPhases = (
-				2D1C7F002EEA88550021064E /* Sources */,
-				2D1C7F012EEA88550021064E /* Frameworks */,
-				2D1C7F022EEA88550021064E /* Resources */,
+				2D9E466E2EEA89DA00231E2B /* Sources */,
+				2D9E466F2EEA89DA00231E2B /* Frameworks */,
+				2D9E46702EEA89DA00231E2B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2D1C7F062EEA88550021064E /* SuperStarWars */,
+				2D9E46742EEA89DA00231E2B /* SuperStarWars */,
 			);
 			name = SuperStarWars;
 			packageProductDependencies = (
 			);
 			productName = SuperStarWars;
-			productReference = 2D1C7F042EEA88550021064E /* SuperStarWars.app */;
+			productReference = 2D9E46722EEA89DA00231E2B /* SuperStarWars.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2D1C7EFC2EEA88550021064E /* Project object */ = {
+		2D9E466A2EEA89DA00231E2B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					2D1C7F032EEA88550021064E = {
+					2D9E46712EEA89DA00231E2B = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
 			};
-			buildConfigurationList = 2D1C7EFF2EEA88550021064E /* Build configuration list for PBXProject "SuperStarWars" */;
+			buildConfigurationList = 2D9E466D2EEA89DA00231E2B /* Build configuration list for PBXProject "SuperStarWars" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2D1C7EFB2EEA88550021064E;
+			mainGroup = 2D9E46692EEA89DA00231E2B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2D1C7F052EEA88550021064E /* Products */;
+			productRefGroup = 2D9E46732EEA89DA00231E2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D1C7F032EEA88550021064E /* SuperStarWars */,
+				2D9E46712EEA89DA00231E2B /* SuperStarWars */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2D1C7F022EEA88550021064E /* Resources */ = {
+		2D9E46702EEA89DA00231E2B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2D1C7F002EEA88550021064E /* Sources */ = {
+		2D9E466E2EEA89DA00231E2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2D1C7F0D2EEA88560021064E /* Debug */ = {
+		2D9E467B2EEA89DB00231E2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -189,7 +189,7 @@
 			};
 			name = Debug;
 		};
-		2D1C7F0E2EEA88560021064E /* Release */ = {
+		2D9E467C2EEA89DB00231E2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,7 +246,7 @@
 			};
 			name = Release;
 		};
-		2D1C7F102EEA88560021064E /* Debug */ = {
+		2D9E467E2EEA89DB00231E2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -278,7 +278,7 @@
 			};
 			name = Debug;
 		};
-		2D1C7F112EEA88560021064E /* Release */ = {
+		2D9E467F2EEA89DB00231E2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -313,25 +313,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D1C7EFF2EEA88550021064E /* Build configuration list for PBXProject "SuperStarWars" */ = {
+		2D9E466D2EEA89DA00231E2B /* Build configuration list for PBXProject "SuperStarWars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D1C7F0D2EEA88560021064E /* Debug */,
-				2D1C7F0E2EEA88560021064E /* Release */,
+				2D9E467B2EEA89DB00231E2B /* Debug */,
+				2D9E467C2EEA89DB00231E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D1C7F0F2EEA88560021064E /* Build configuration list for PBXNativeTarget "SuperStarWars" */ = {
+		2D9E467D2EEA89DB00231E2B /* Build configuration list for PBXNativeTarget "SuperStarWars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D1C7F102EEA88560021064E /* Debug */,
-				2D1C7F112EEA88560021064E /* Release */,
+				2D9E467E2EEA89DB00231E2B /* Debug */,
+				2D9E467F2EEA89DB00231E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2D1C7EFC2EEA88550021064E /* Project object */;
+	rootObject = 2D9E466A2EEA89DA00231E2B /* Project object */;
 }
