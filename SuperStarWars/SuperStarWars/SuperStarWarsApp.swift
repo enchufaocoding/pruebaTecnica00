@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+// import SwiftData
 
 @main
 struct SuperStarWarsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CharacterView()
         }
+      //  .modelContainer(for: ChacaterPersistence.self])
     }
 }

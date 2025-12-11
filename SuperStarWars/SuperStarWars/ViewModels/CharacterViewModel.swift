@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-final class PeopleViewModel: ObservableObject {
+final class CharacterViewModel: ObservableObject {
     @Published var people: [CharacterModel] = []
     @Published var isLoading = false
     @Published var searchText: String = ""
@@ -20,5 +20,56 @@ final class PeopleViewModel: ObservableObject {
     private var fetchedPages = Set<Int>()
 
     private var filmCache: [Int: FilmsModel] = [:]
+
+    func loadNextPageIfNeeded(currentItem: CharacterModel?) {
+        guard !isLoading, canLoadMore else { return }
+        guard let currentItem else {
+            Task { await loadPeoplePage() }
+            return
+        }
+        
+        guard let idx = people.firstIndex(where: { $0.id == currentItem.id }) else { return }
+        
+        if idx >= people.count - 5 {
+            Task { await loadPeoplePage() }
+        }
+    }
+
+    func loadPeoplePage() async {
+        guard !isLoading, canLoadMore, !fetchedPages.contains(currentPage) else { return }
+        isLoading = true
+        do {
+            let resp = try await APIServices.fetchCharacter(pageNum: currentPage)
+            people.append(contentsOf: resp.results)
+            canLoadMore = resp.next != nil
+            fetchedPages.insert(currentPage)
+            currentPage += 1
+            await persistenceCharacter(resp.results)
+        } catch {
+            print("Failed to load people: \(error)")
+        }
+        isLoading = false
+    }
+
+    var filteredPeople: [CharacterModel] {
+        var list = people
+        if !searchText.isEmpty {
+            list = list.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+        // ordenar la lista por año nacimiento
+        if sortByBirthYear {
+            list.sort { $0.birth_year < $1.birth_year }
+        }
+        return list
+    }
+    
+    private func persistenceCharacter(_ dtos: [CharacterModel]) async {
+        for dto in dtos {
+            let id = dto.id
+            let filmIds = dto.films.compactMap { Int($0.lastPathComponent) }
+            let entity = CharacterPersistence(id: id, name: dto.name, birthYear: dto.birth_year, gender: dto.gender, filmsID: filmIds)
+        }
+    }
+    
     
 }

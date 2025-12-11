@@ -17,3 +17,15 @@ struct CharacterModel: Identifiable, Codable, Hashable {
     
     var id: Int { Int(URL(string: url)!.lastPathComponent) ?? UUID().hashValue}
 }
+
+
+extension CharacterModel {
+    static let dataPreview = CharacterModel(
+        name: "Luke Skywalker",
+        birth_year: "19BBY",
+        gender: "male",
+        films: [
+            URL(string: "https://swapi.dev/api/films/1/")!
+        ], url: "https://swapi.dev/api/films/1/"
+    )
+}
