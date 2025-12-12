@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import SwiftData
 
 @MainActor
 final class CharacterViewModel: ObservableObject {
@@ -63,12 +64,51 @@ final class CharacterViewModel: ObservableObject {
         }
         return list
     }
-    
+    /*
     private func persistenceCharacter(_ dtos: [CharacterModel]) async {
+        
+      //  let context = try? await PersistenceController.shared.container.mainActorContext
+        let context = try? await PersistenceManager.shared.container.mainContext
+        guard let context else { return }
         for dto in dtos {
             let id = dto.id
+            if try? context.fetch(CharacterModel.self, id: id) != nil {
+                continue
+            }
+            
             let filmIds = dto.films.compactMap { Int($0.lastPathComponent) }
             let entity = CharacterPersistence(id: id, name: dto.name, birthYear: dto.birth_year, gender: dto.gender, filmsID: filmIds)
+            try? context.insert(entity)
+            try? context.save()
+        }
+        
+    }
+     */
+    
+    private func persistenceCharacter(_ dtos: [CharacterModel]) async {
+        let context = PersistenceManager.shared.container.mainContext
+        
+        for dto in dtos {
+            let id = dto.id
+            
+            let fetchRequest = FetchDescriptor<CharacterPersistence>(
+                predicate: #Predicate { $0.id == id }
+            )
+            
+            if let count = try? context.fetchCount(fetchRequest), count > 0 {
+                continue
+            }
+            
+            let filmIds = dto.films.compactMap { Int($0.lastPathComponent) }
+            let entity = CharacterPersistence(id: id, name: dto.name, birthYear: dto.birth_year, gender: dto.gender, filmsID: filmIds)
+            
+            context.insert(entity)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error saving character: \(error)")
+            }
         }
     }
     
